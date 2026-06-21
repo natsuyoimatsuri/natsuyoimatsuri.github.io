@@ -139,6 +139,7 @@ section {
 =================================================================== */
 
 .site-header {
+  --header-progress: 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -149,16 +150,14 @@ section {
   justify-content: space-between;
   padding: clamp(20px, 2.2vw, 24px) clamp(22px, 4vw, 58px);
   background: none;
-  opacity: 0;
-  transform: translateY(-12px);
+  opacity: var(--header-progress);
+  transform: translateY(calc((1 - var(--header-progress)) * -12px));
   pointer-events: none;
   transition: opacity 0.7s var(--ease-out),
     transform 0.7s var(--ease-out);
 }
 
 .site-header.is-visible {
-  opacity: 1;
-  transform: translateY(0);
   pointer-events: auto;
 }
 

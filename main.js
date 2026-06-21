@@ -6,25 +6,28 @@ const siteHeader = document.getElementById('siteHeader');
 const topSection = document.getElementById('Top');
 
 if (siteHeader && topSection) {
-  if ('IntersectionObserver' in window) {
-    const headerObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // Topセクションがほぼ画面外に出たらヘッダーを表示する
-          siteHeader.classList.toggle('is-visible', !entry.isIntersecting);
-        });
-      },
-      {
-        threshold: 0,
-        rootMargin: '-90% 0px 0px 0px',
-      }
-    );
+  let headerTicking = false;
 
-    headerObserver.observe(topSection);
-  } else {
-    // 未対応ブラウザ向けフォールバック：常時表示
-    siteHeader.classList.add('is-visible');
-  }
+  const updateHeaderVisibility = () => {
+    headerTicking = false;
+    const topHeight = topSection.offsetHeight || window.innerHeight;
+    const fadeStart = topHeight * 0.72;
+    const fadeEnd = topHeight * 0.9;
+    const progress = Math.min(1, Math.max(0, (window.scrollY - fadeStart) / (fadeEnd - fadeStart)));
+
+    siteHeader.style.setProperty('--header-progress', progress.toFixed(3));
+    siteHeader.classList.toggle('is-visible', progress > 0.02);
+  };
+
+  const requestHeaderVisibilityUpdate = () => {
+    if (headerTicking) return;
+    headerTicking = true;
+    requestAnimationFrame(updateHeaderVisibility);
+  };
+
+  window.addEventListener('scroll', requestHeaderVisibilityUpdate, { passive: true });
+  window.addEventListener('resize', requestHeaderVisibilityUpdate);
+  requestHeaderVisibilityUpdate();
 }
 
 
