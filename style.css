@@ -27,14 +27,15 @@
 
 html {
   scroll-behavior: smooth;
-  background: #ffffff;
+  background: #fff;
+  color-scheme: light;
   overscroll-behavior-y: none;
 }
 
 body {
   position: relative;
   isolation: isolate;
-  background: #ffffff;
+  background: #fff;
   min-height: 100vh;
   min-height: 100svh;
   color: var(--red-ink);
@@ -45,12 +46,7 @@ body {
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: transparent;
-  pointer-events: none;
+  display: none;
 }
 
 a {
@@ -785,6 +781,11 @@ footer small {
 =================================================================== */
 
 @media (max-width: 850px) {
+  html,
+  body {
+    background: #fff;
+  }
+
   .site-header {
     padding: 16px 20px;
     background: none;
