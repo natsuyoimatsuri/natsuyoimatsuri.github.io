@@ -27,14 +27,15 @@
 
 html {
   scroll-behavior: smooth;
-  background:#e72410;
+  background: var(--red);
+  color-scheme: light;
   overscroll-behavior-y: none;
 }
 
 body {
   position: relative;
   isolation: isolate;
-  background: #fff;
+  background: var(--red);
   min-height: 100vh;
   min-height: 100svh;
   color: var(--red-ink);
@@ -263,7 +264,6 @@ section {
   position: absolute;
   inset: auto 0 0;
   height: clamp(88px, 13vw, 160px);
-  background: linear-gradient(180deg, transparent, rgba(111, 16, 8, 0.24));
   pointer-events: none;
   z-index: 0;
 }
@@ -782,7 +782,7 @@ footer small {
 @media (max-width: 850px) {
   html,
   body {
-    background: #fff;
+    background: var(--red);
   }
 
   .site-header {
