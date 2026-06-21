@@ -6,12 +6,28 @@ const siteHeader = document.getElementById('siteHeader');
 const topSection = document.getElementById('Top');
 
 if (siteHeader && topSection) {
+  const setHeaderVisible = (visible) => {
+    const wasVisible = siteHeader.classList.contains('is-visible');
+
+    if (visible && !wasVisible) {
+      siteHeader.classList.add('is-visible');
+      siteHeader.classList.remove('is-appearing');
+      void siteHeader.offsetWidth;
+      siteHeader.classList.add('is-appearing');
+      return;
+    }
+
+    if (!visible && wasVisible) {
+      siteHeader.classList.remove('is-visible', 'is-appearing');
+    }
+  };
+
   if ('IntersectionObserver' in window) {
     const headerObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           // Topセクションがほぼ画面外に出たらヘッダーを表示する
-          siteHeader.classList.toggle('is-visible', !entry.isIntersecting);
+          setHeaderVisible(!entry.isIntersecting);
         });
       },
       {
@@ -23,19 +39,19 @@ if (siteHeader && topSection) {
     headerObserver.observe(topSection);
   } else {
     // 未対応ブラウザ向けフォールバック：常時表示
-    siteHeader.classList.add('is-visible');
+    setHeaderVisible(true);
   }
 }
 
 
 /* ===================================================================
-   ヘッダー文字色の反転：背後が白系セクション(Access/Credit)のとき
+   ヘッダー文字色の反転：背後が白系セクション(Timetable/Access/Credit)のとき
    ヘッダーの文字を赤に切り替える。それ以外（赤系セクション）は白のまま。
    ヘッダー直下の実際のピクセルに何が描画されているかを直接調べる方式。
 =================================================================== */
 
 if (siteHeader) {
-  const lightSectionIds = ['Access', 'Credit'];
+  const lightSectionIds = ['Timetable', 'Access', 'Credit'];
 
   const getSectionIdAtHeaderLine = () => {
     const headerRect = siteHeader.getBoundingClientRect();
