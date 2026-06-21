@@ -27,14 +27,14 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--cream);
+  background: #ffffff;
   overscroll-behavior-y: none;
 }
 
 body {
   position: relative;
   isolation: isolate;
-  background: transparent;
+  background: #ffffff;
   min-height: 100vh;
   min-height: 100svh;
   color: var(--red-ink);
@@ -49,7 +49,7 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, var(--red) 0%, var(--red-deep) 100%);
+  background: transparent;
   pointer-events: none;
 }
 
