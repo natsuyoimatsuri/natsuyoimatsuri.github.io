@@ -27,7 +27,7 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--red-deep);
+  background: var(--cream);
   overscroll-behavior-y: none;
 }
 
@@ -168,12 +168,15 @@ section {
 
 /* 既定（地が赤系のとき）：白文字。.is-on-light が付くと赤文字に反転 */
 .brand-mark {
+  display: inline-block;
   font-family: var(--font-display);
   font-size: clamp(15px, 1.3vw, 17px);
   font-weight: 600;
   letter-spacing: 0.16em;
   color: var(--cream);
   white-space: nowrap;
+  transform: scaleX(1.2);
+  transform-origin: left center;
   transition: color 0.35s var(--ease-soft);
 }
 
@@ -194,12 +197,15 @@ section {
   position: relative;
   display: inline-block;
   font-size: clamp(13px, 1.05vw, 14.5px);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   color: var(--cream);
   opacity: 0.7;
   padding-bottom: 3px;
+  transform: scaleX(1.2);
+  transform-origin: right center;
   transition: opacity 0.3s var(--ease-soft),
-    color 0.35s var(--ease-soft);
+    color 0.35s var(--ease-soft),
+    transform 0.35s var(--ease-soft);
 }
 
 .site-header nav a::after {
@@ -417,25 +423,36 @@ section {
 }
 
 .overview-meta-title {
+  display: inline-block;
   font-family: var(--font-display);
   font-size: clamp(13.5px, 1.05vw, 15px);
   font-weight: 600;
   letter-spacing: 0.18em;
   color: var(--cream);
   margin-bottom: 4px;
+  transform-origin: left center;
 }
 
 /* セクション見出し：太字「本題」+ 細字「接続語」でウェイトの強弱をつくる */
 section h2 {
+  --heading-stretch: 1.5;
+  display: inline-block;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(23px, 2.1vw, 28px);
   letter-spacing: 0.06em;
-  line-height: 1.65;
+  line-height: 1.48;
   margin-bottom: clamp(34px, 4.6vw, 48px);
+  transform: scaleY(var(--heading-stretch));
+}
+
+section h2 .heading-main {
+  display: inline-block;
+  transform-origin: left center;
 }
 
 section h2 .toha {
+  display: inline-block;
   font-weight: 400;
   font-size: clamp(15px, 1.2vw, 18px);
   color: var(--cream);
@@ -444,8 +461,10 @@ section h2 .toha {
 }
 
 .Overview p {
-  font-size: clamp(15px, 1.25vw, 16.5px);
-  line-height: 2.12;
+  transform: scaleX(1.025);
+  transform-origin: left center;
+  font-size: clamp(16px, 1.35vw, 18px);
+  line-height: 2;
   letter-spacing: 0.02em;
   margin-bottom: clamp(42px, 5.2vw, 58px);
 }
@@ -463,12 +482,13 @@ section h2 .toha {
   display: inline-block;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(24px, 2vw, 34px);
+  font-size: clamp(18px, 1.5vw, 24px);
   letter-spacing: 0.1em;
   line-height: 1;
   color: var(--cream);
   margin: 0;
   text-shadow: 0 0 18px rgba(217, 164, 65, 0.24);
+  transform-origin: left center;
 }
 
 .notice {
@@ -485,16 +505,20 @@ section h2 .toha {
 }
 
 .notice-label {
+  display: inline-block;
   font-family: var(--font-display);
   font-size: clamp(12px, 1vw, 16px);
   letter-spacing: 0.32em;
   color: var(--gold);
+  transform-origin: center;
 }
 
 .notice-body {
+  display: inline-block;
   font-size: clamp(18px, 1.6vw, 20px);
   letter-spacing: 0.06em;
   white-space: nowrap;
+  transform-origin: center;
 }
 
 
@@ -516,6 +540,8 @@ section h2 .toha {
   height: 2px;
   background: var(--gold);
   margin-bottom: clamp(18px, 2.4vw, 24px);
+  transform: scaleY(0.82);
+  transform-origin: left center;
 }
 
 
@@ -548,6 +574,8 @@ section h2 .toha {
 }
 
 .access-info .address {
+  transform: scaleX(1.02);
+  transform-origin: left center;
   font-size: clamp(14.5px, 1.15vw, 16px);
   line-height: 1.95;
   letter-spacing: 0.03em;
@@ -563,6 +591,8 @@ section h2 .toha {
 }
 
 .access-row dd {
+  transform: scaleX(1.02);
+  transform-origin: left center;
   font-size: clamp(14px, 1.15vw, 15.5px);
   line-height: 1.95;
   letter-spacing: 0.03em;
@@ -603,15 +633,19 @@ section h2 .toha {
 }
 
 .credit-row dt {
+  display: inline-block;
   font-family: var(--font-display);
   font-size: clamp(13px, 1vw, 14.5px);
   font-weight: 600;
   letter-spacing: 0.1em;
   color: var(--gold);
   padding-top: 0.15em;
+  transform-origin: left center;
 }
 
 .credit-row dd {
+  transform: scaleX(1.02);
+  transform-origin: left center;
   font-size: clamp(14px, 1.15vw, 15.5px);
   line-height: 1.9;
   letter-spacing: 0.03em;
@@ -655,6 +689,8 @@ section h2 .toha {
 }
 
 .form-text {
+  transform: scaleX(1.03);
+  transform-origin: left center;
   font-size: clamp(15px, 1.3vw, 16.5px);
   line-height: 2.1;
   letter-spacing: 0.03em;
@@ -679,21 +715,14 @@ section h2 .toha {
   letter-spacing: 0.1em;
   color: var(--cream);
   text-align: center;
+  transform-origin: center;
   transition: background-color 0.35s var(--ease-soft),
     color 0.35s var(--ease-soft);
-}
-
-.contact-link-arrow {
-  transition: transform 0.35s var(--ease-soft);
 }
 
 .contact-link:hover {
   background-color: var(--cream);
   color: var(--red-ink);
-}
-
-.contact-link:hover .contact-link-arrow {
-  transform: translateX(5px);
 }
 
 /* X / Instagram アイコンリンク */
@@ -769,6 +798,11 @@ footer small {
     font-size: 11.5px;
     letter-spacing: 0.1em;
     opacity: 1;
+    transform: scaleX(1.14) scaleY(0.96);
+  }
+
+  .site-header nav a:hover {
+    transform: scaleX(1.14) scaleY(0.96);
   }
 
   .hero-zone::before {
@@ -830,13 +864,14 @@ footer small {
   }
 
   .Overview p {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 2.12;
     margin-bottom: 40px;
+    transform: scaleX(1.01);
   }
 
   .Overview .theme {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 1.45;
   }
 
@@ -847,6 +882,18 @@ footer small {
   .notice-body {
     font-size: clamp(14px, 4vw, 18px);
     letter-spacing: 0.02em;
+    transform: scaleX(1.02);
+  }
+
+  .access-info .address,
+  .access-row dd,
+  .credit-row dd,
+  .form-text {
+    transform: scaleX(1.01);
+  }
+
+  .contact-link {
+    transform: none;
   }
 
   .Credit .logos {
@@ -877,109 +924,5 @@ footer small {
 
   .Form .section-inner {
     padding-bottom: 84px;
-  }
-}
-
-/* ===================================================================
-   TABLET PORTRAIT
-=================================================================== */
-
-@media (min-width: 700px) and (max-width: 850px) {
-  .site-header {
-    padding: 22px 32px;
-  }
-
-  .brand-mark {
-    font-size: 17px;
-  }
-
-  .site-header nav a {
-    font-size: 13.5px;
-  }
-
-  .Top .hero {
-    padding: clamp(62px, 8vw, 76px) 38px clamp(76px, 9vw, 96px);
-  }
-
-  .Title img {
-    width: clamp(280px, 39vw, 330px);
-  }
-
-  .Date img {
-    width: clamp(260px, 36vw, 300px);
-  }
-
-  .logo-spin {
-    width: clamp(410px, 56vw, 470px);
-  }
-
-  .Overview {
-    padding: 118px 52px 96px;
-  }
-
-  .overview-meta {
-    font-size: 13.5px;
-  }
-
-  section h2 {
-    font-size: 25px;
-  }
-
-  section h2 .toha {
-    font-size: 16px;
-  }
-
-  .Overview p {
-    font-size: 16px;
-    margin-bottom: 48px;
-  }
-
-  .Overview .theme {
-    font-size: 30px;
-  }
-
-  .section-inner {
-    padding: 86px 52px 96px;
-  }
-
-  .access-info .address,
-  .access-row dd,
-  .credit-row dd,
-  .form-text {
-    font-size: 16px;
-  }
-
-  .access-row:first-child dd {
-    font-size: 18px;
-  }
-
-  .contact-link {
-    font-size: 16px;
-  }
-
-  .Form .section-inner {
-    padding-bottom: 112px;
-  }
-}
-
-/* ===================================================================
-   TABLET LANDSCAPE
-=================================================================== */
-
-@media (min-width: 851px) and (max-width: 1100px) and (orientation: landscape) {
-  .Top .hero {
-    padding: clamp(34px, 4vw, 48px) clamp(38px, 6vw, 66px);
-  }
-
-  .Title img {
-    width: clamp(198px, 20vw, 230px);
-  }
-
-  .Date img {
-    width: clamp(190px, 19vw, 220px);
-  }
-
-  .logo-spin {
-    width: clamp(390px, 43vw, 470px);
   }
 }
