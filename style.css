@@ -27,7 +27,7 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--red);
+  background: var(--red-deep);
   color-scheme: light;
   overscroll-behavior-y: none;
 }
@@ -35,7 +35,7 @@ html {
 body {
   position: relative;
   isolation: isolate;
-  background: var(--red);
+  background: linear-gradient(180deg, var(--red) 0%, var(--red-deep) 100%);
   min-height: 100vh;
   min-height: 100svh;
   color: var(--red-ink);
@@ -46,7 +46,12 @@ body {
 }
 
 body::before {
-  display: none;
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, var(--red) 0%, var(--red-deep) 100%);
+  pointer-events: none;
 }
 
 a {
@@ -782,7 +787,7 @@ footer small {
 @media (max-width: 850px) {
   html,
   body {
-    background: var(--red);
+    background: linear-gradient(180deg, var(--red) 0%, var(--red-deep) 100%);
   }
 
   .site-header {
