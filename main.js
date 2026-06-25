@@ -166,8 +166,6 @@ if (logoSpin) {
 =================================================================== */
 
 const fadeTargets = document.querySelectorAll('.fade-in');
-const overviewSection = document.getElementById('Overview');
-let overviewSettled = false;
 
 if (fadeTargets.length) {
   // data-fade-delay があればそれを優先、なければセクション内の出現順で自動算出
@@ -199,12 +197,6 @@ if (fadeTargets.length) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            if (overviewSection && overviewSection.contains(entry.target) && !overviewSettled) {
-              overviewSettled = true;
-              window.setTimeout(() => {
-                overviewSection.classList.add('has-settled');
-              }, 1400);
-            }
             observer.unobserve(entry.target);
           }
         });

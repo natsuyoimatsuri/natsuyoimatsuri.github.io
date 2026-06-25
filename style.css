@@ -397,13 +397,6 @@ section {
   width: 100%;
 }
 
-.Overview-section.has-settled .fade-in {
-  opacity: 1 !important;
-  transform: none !important;
-  transition-delay: 0s !important;
-  will-change: auto;
-}
-
 .Overview {
   max-width: 780px;
   margin: 0 auto;
@@ -804,6 +797,21 @@ section h2 .toha {
   width: 27px;
   height: 27px;
   filter: brightness(0) invert(1);
+}
+
+.page-note {
+  background: var(--red-deep);
+  color: var(--cream);
+  padding: 0 clamp(28px, 5vw, 84px) clamp(30px, 4vw, 44px);
+}
+
+.page-note p {
+  max-width: 752px;
+  margin: 0 auto;
+  font-size: clamp(13px, 1.05vw, 15px);
+  line-height: 1.75;
+  letter-spacing: 0.03em;
+  text-align: center;
 }
 
 footer {
