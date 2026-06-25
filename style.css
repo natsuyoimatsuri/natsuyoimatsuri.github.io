@@ -802,16 +802,17 @@ section h2 .toha {
 .page-note {
   background: var(--red-deep);
   color: var(--cream);
-  padding: 0 clamp(28px, 5vw, 84px) clamp(30px, 4vw, 44px);
+  padding-bottom: clamp(30px, 4vw, 44px);
 }
 
 .page-note p {
-  max-width: 752px;
+  max-width: 920px;
   margin: 0 auto;
+  padding-inline: clamp(28px, 5vw, 84px);
   font-size: clamp(13px, 1.05vw, 15px);
   line-height: 1.75;
   letter-spacing: 0.03em;
-  text-align: center;
+  text-align: left;
 }
 
 footer {
@@ -996,8 +997,16 @@ footer small {
     min-width: 760px;
   }
 
+  .timetable-notes {
+    margin-top: 26px;
+  }
+
   .social-links a {
     opacity: 1;
+  }
+
+  .page-note p {
+    padding-inline: 22px;
   }
 
   .section-inner {
