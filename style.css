@@ -427,7 +427,7 @@ section {
 .overview-meta-title {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: clamp(13.5px, 1.05vw, 15px);
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.18em;
   color: var(--cream);
@@ -569,6 +569,16 @@ section h2 .toha {
   display: block;
 }
 
+.timetable-notes {
+  display: grid;
+  gap: 0.5em;
+  margin-top: clamp(16px, 2vw, 22px);
+  font-size: clamp(13px, 1.05vw, 15px);
+  line-height: 1.75;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+
 
 /* ===================================================================
    ACCESS
@@ -677,36 +687,43 @@ section h2 .toha {
   color: var(--ink);
 }
 
+.credit-note {
+  margin-top: clamp(14px, 1.8vw, 20px);
+  font-size: clamp(12px, 0.95vw, 14px);
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-align: right;
+}
+
 .Credit .logos {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
   align-items: center;
-  justify-items: center;
-  gap: clamp(14px, 2.2vw, 28px);
+  justify-content: space-between;
   margin-top: clamp(44px, 5.4vw, 64px);
   width: 100%;
 }
 
 .Credit .logos img {
-  width: 100%;
-  height: clamp(46px, 5.4vw, 72px);
+  flex: 0 0 auto;
+  height: auto;
   object-fit: contain;
 }
 
 .Credit .logos .logo-tamabi {
-  max-width: 96%;
+  width: 72px;
 }
 
 .Credit .logos .logo-koeki {
-  max-width: 112%;
+  width: 220px;
 }
 
 .Credit .logos .logo-showakai {
-  max-width: 68%;
+  width: 68px;
 }
 
 .Credit .logos .logo-goto {
-  max-width: 90%;
+  width: 160px;
 }
 
 
@@ -941,28 +958,23 @@ footer small {
   }
 
   .Credit .logos {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(4px, 1.6vw, 8px);
-  }
-
-  .Credit .logos img {
-    height: clamp(34px, 10vw, 48px);
+    justify-content: space-between;
   }
 
   .Credit .logos .logo-tamabi {
-    max-width: 110%;
+    width: clamp(20px, 10vw, 68px);
   }
 
   .Credit .logos .logo-koeki {
-    max-width: 142%;
+    width: clamp(95px, 25vw, 210px);
   }
 
   .Credit .logos .logo-showakai {
-    max-width: 86%;
+    width: clamp(18px, 9vw, 64px);
   }
 
   .Credit .logos .logo-goto {
-    max-width: 104%;
+    width: clamp(72px, 18vw, 150px);
   }
 
   .timetable-wrap {
