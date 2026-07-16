@@ -45,6 +45,35 @@ if (siteHeader && topSection) {
 
 
 /* ===================================================================
+   モバイルナビ：タップ後の下線をスクロール開始時に解除
+=================================================================== */
+
+if (siteHeader) {
+  const navLinks = siteHeader.querySelectorAll('nav a');
+  const canHover = window.matchMedia('(hover: hover)').matches;
+
+  if (navLinks.length && !canHover) {
+    const clearTappedNav = () => {
+      navLinks.forEach((link) => link.classList.remove('is-tapped'));
+
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+    };
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.forEach((item) => item.classList.remove('is-tapped'));
+        link.classList.add('is-tapped');
+      });
+    });
+
+    window.addEventListener('scroll', clearTappedNav, { passive: true });
+  }
+}
+
+
+/* ===================================================================
    ヘッダー文字色の反転：背後が白系セクション(Timetable/Access/Credit)のとき
    ヘッダーの文字を赤に切り替える。それ以外（赤系セクション）は白のまま。
    ヘッダー直下の実際のピクセルに何が描画されているかを直接調べる方式。
