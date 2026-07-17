@@ -50,9 +50,15 @@
 
   <header class="site-header" id="siteHeader">
     <a href="#Top" class="brand-mark">上野毛 夏宵祭</a>
-    <nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="siteNav" class="site-nav-panel" aria-label="サイトメニュー">
       <ul>
         <li><a href="#Timetable">タイムテーブル</a></li>
+        <li><a href="#VenueMap">会場マップ</a></li>
         <li><a href="#Access">アクセス</a></li>
         <li><a href="#Credit">クレジット</a></li>
         <li><a href="#Form">お問い合わせ</a></li>
@@ -113,18 +119,29 @@
     <div class="section-inner">
       <h2 class="fade-in">タイムテーブル</h2>
 
-      <div class="timetable-wrap fade-in">
-        <img src="timetable.svg" alt="2026年8月1日から8月3日までのタイムテーブル">
-      </div>
-
-      <div class="timetable-notes fade-in">
-        <p>※各企画の詳細はWEBサイトにて随時更新予定です。</p>
+      <div class="timetable-wrap fade-in" id="timetableInteractive">
+        <div class="timetable-stage">
+          <img src="timetable.svg" alt="2026年8月1日から8月3日までのタイムテーブル">
+          <div class="timetable-hotspots" aria-label="タイムテーブル詳細"></div>
+        </div>
       </div>
 
       <a class="program-detail-link fade-in" href="program.html">
         <span>プログラム詳細はこちら</span>
         <span aria-hidden="true">→</span>
       </a>
+
+      <div class="timetable-modal" id="timetableModal" hidden>
+        <div class="timetable-modal-backdrop" data-timetable-close></div>
+        <section class="timetable-modal-panel" role="dialog" aria-modal="true" aria-labelledby="timetableModalTitle" tabindex="-1">
+          <button class="timetable-modal-close" type="button" aria-label="閉じる" data-timetable-close>×</button>
+          <p class="timetable-modal-kicker" id="timetableModalKicker"></p>
+          <h3 id="timetableModalTitle"></h3>
+          <dl class="timetable-modal-meta" id="timetableModalMeta"></dl>
+          <figure class="timetable-modal-poster" id="timetableModalPoster" hidden></figure>
+          <div class="timetable-modal-body" id="timetableModalBody"></div>
+        </section>
+      </div>
     </div>
   </section>
 
@@ -212,15 +229,6 @@
         </p>
       </div>
 
-      <div class="social-links fade-in">
-        <a href="https://x.com/natsuyoimatsuri?s=20" target="_blank" rel="noopener" aria-label="X（旧Twitter）">
-          <img src="x.svg" alt="">
-        </a>
-        <a href="https://www.instagram.com/natsuyoimatsuri?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw=="
-          target="_blank" rel="noopener" aria-label="Instagram">
-          <img src="Instagram.svg" alt="">
-        </a>
-      </div>
     </div>
   </section>
 
@@ -229,10 +237,20 @@
   </aside>
 
   <footer>
-    <small>&copy; 多摩美術大学 上野毛夏宵祭実行委員会</small>
+    <div class="footer-inner">
+      <div class="footer-social-links">
+        <a href="https://x.com/natsuyoimatsuri?s=20" target="_blank" rel="noopener" aria-label="X（旧Twitter）">
+          <img src="x.svg" alt="">
+        </a>
+        <a href="https://www.instagram.com/natsuyoimatsuri?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram">
+          <img src="Instagram.svg" alt="">
+        </a>
+      </div>
+      <small>&copy; 多摩美術大学 上野毛夏宵祭実行委員会</small>
+    </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="main.js?v=20260717-timetable-top-hit"></script>
 </body>
 
 </html>
