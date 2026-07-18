@@ -58,6 +58,7 @@ if (siteHeader && menuToggle && siteNavPanel) {
     siteHeader.classList.toggle('is-menu-open', open);
     menuToggle.setAttribute('aria-expanded', String(open));
     menuToggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    window.dispatchEvent(new Event('natsuyoi:menu-toggle'));
   };
 
   siteHeader.addEventListener('click', (event) => {
@@ -121,15 +122,20 @@ if (siteHeader) {
 if (siteHeader) {
   const lightSectionIds = ['Timetable', 'VenueMap', 'Access', 'Credit'];
 
-  const getSectionIdAtHeaderLine = () => {
-    const headerRect = siteHeader.getBoundingClientRect();
-    const probeX = window.innerWidth / 2;
-    const probeY = headerRect.top + headerRect.height * 0.7;
+  const lightSections = lightSectionIds
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
 
+  const isPointOnLightSection = (x, y) => lightSections.some((section) => {
+    const rect = section.getBoundingClientRect();
+    return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+  });
+
+  const getSectionIdAtPoint = (x, y) => {
     // ヘッダー自身やその子要素が拾われないよう、判定中だけクリックを無効化
     const prevPointerEvents = siteHeader.style.pointerEvents;
     siteHeader.style.pointerEvents = 'none';
-    const el = document.elementFromPoint(probeX, probeY);
+    const el = document.elementFromPoint(x, y);
     siteHeader.style.pointerEvents = prevPointerEvents;
 
     if (!el) return null;
@@ -138,13 +144,67 @@ if (siteHeader) {
     return section ? section.id || section.tagName.toLowerCase() : null;
   };
 
+  const isHeaderOnLight = () => {
+    const headerRect = siteHeader.getBoundingClientRect();
+    const x = window.innerWidth / 2;
+    const y = headerRect.top + headerRect.height * 0.7;
+    return isPointOnLightSection(x, y) || lightSectionIds.includes(getSectionIdAtPoint(x, y));
+  };
+
+  const menuLinks = siteNavPanel ? Array.from(siteNavPanel.querySelectorAll('a')) : [];
+
+  menuLinks.forEach((link) => {
+    if (link.dataset.contrastReady === 'true') return;
+
+    const text = link.textContent.trim();
+    link.textContent = '';
+
+    Array.from(text).forEach((char) => {
+      const span = document.createElement('span');
+      span.className = 'menu-letter';
+      span.textContent = char;
+      link.append(span);
+    });
+
+    link.dataset.contrastReady = 'true';
+  });
+
+  const updateElementContrast = (el) => {
+    const rect = el.getBoundingClientRect();
+    const x = rect.left + rect.width * 0.5;
+    const y = rect.top + rect.height * 0.5;
+    const isOnLight = isPointOnLightSection(x, y) || lightSectionIds.includes(getSectionIdAtPoint(x, y));
+    el.classList.toggle('is-over-light', isOnLight);
+    el.classList.toggle('is-over-red', !isOnLight);
+  };
+
+  const updateMenuLinkContrast = () => {
+    if (!siteNavPanel) return;
+
+    if (!siteHeader.classList.contains('is-menu-open')) {
+      menuLinks.forEach((link) => {
+        link.classList.remove('is-over-light', 'is-over-red');
+        link.querySelectorAll('.menu-letter').forEach((letter) => letter.classList.remove('is-over-light', 'is-over-red'));
+      });
+      menuToggle.classList.remove('is-over-light', 'is-over-red');
+      return;
+    }
+
+    updateElementContrast(menuToggle);
+
+    menuLinks.forEach((link) => {
+      updateElementContrast(link);
+      link.querySelectorAll('.menu-letter').forEach(updateElementContrast);
+    });
+  };
+
   let ticking = false;
 
   const updateHeaderContrast = () => {
     ticking = false;
-    const id = getSectionIdAtHeaderLine();
-    const isOnLight = lightSectionIds.includes(id);
+    const isOnLight = isHeaderOnLight();
     siteHeader.classList.toggle('is-on-light', isOnLight);
+    updateMenuLinkContrast();
   };
 
   const requestHeaderContrastUpdate = () => {
@@ -155,6 +215,7 @@ if (siteHeader) {
 
   window.addEventListener('scroll', requestHeaderContrastUpdate, { passive: true });
   window.addEventListener('resize', requestHeaderContrastUpdate);
+  window.addEventListener('natsuyoi:menu-toggle', requestHeaderContrastUpdate);
 
   // 初期表示時点の判定
   requestHeaderContrastUpdate();
@@ -439,7 +500,7 @@ const timetablePrograms = [
     date: '８/１(土)',
     time: '19:00 ~ 20:30',
     place: '中庭特設ステージ',
-    groups: [{ heading: '出演', lines: ['19:00~19:20　ダンスバトル　メイジング企画', '19:20~19:40　ヌーディーサマー夏の祝い　ヌーディーサマー', '19:40~20:00　爆弾犯ひばりver.夏宵祭　劇団魔法少女', '20:00~20:20　アコーディオンの女　スン・ダンス'] }],
+    groups: [{ heading: '出演', lines: [{ time: '19:00~19:20', item: 'ダンスバトル', shop: 'メイジング企画' }, { time: '19:20~19:40', item: 'ヌーディーサマー夏の祝い', shop: 'ヌーディーサマー' }, { time: '19:40~20:00', item: '爆弾犯ひばりver.夏宵祭', shop: '劇団魔法少女' }, { time: '20:00~20:20', item: 'アコーディオンの女', shop: 'スン・ダンス' }] }],
   },
   {
     id: 'concert-0802',
@@ -474,7 +535,7 @@ const timetablePrograms = [
     date: '８/２(日)',
     time: '18:00 ~ 19:00',
     place: '中庭特設ステージ',
-    groups: [{ heading: '出演', lines: ['18:00~18:20　エレキギターとカホンによる弾き語り演奏　沙ラ', '18:20~18:40　なんやて！？〜運命のコンビ、勘違い中〜　阿娘喂', '18:40~19:00　アコーディオンの女　スン・ダンス'] }],
+    groups: [{ heading: '出演', lines: [{ time: '18:00~18:20', item: 'エレキギターとカホンによる弾き語り演奏', shop: '沙ラ' }, { time: '18:20~18:40', item: 'なんやて！？〜運命のコンビ、勘違い中〜', shop: '阿娘喂' }, { time: '18:40~19:00', item: 'アコーディオンの女', shop: 'スン・ダンス' }] }],
   },
   {
     id: 'bon-0802',
@@ -581,7 +642,7 @@ const timetablePrograms = [
     date: '８/３(月)',
     time: '18:00 ~ 19:30',
     place: '中庭特設ステージ',
-    groups: [{ heading: '出演', lines: ['18:00~18:20　漫才　せっぷんねんど', '18:20~18:40　ダンスバトル　メイジング企画', '18:40~19:00　落語フラメンコ　落語フラメンコ実行委員会', '19:00~19:20　ヌーディーサマー夏の祝い　ヌーディーサマー'] }],
+    groups: [{ heading: '出演', lines: [{ time: '18:00~18:20', item: '漫才', shop: 'せっぷんねんど' }, { time: '18:20~18:40', item: 'ダンスバトル', shop: 'メイジング企画' }, { time: '18:40~19:00', item: '落語フラメンコ', shop: '落語フラメンコ実行委員会' }, { time: '19:00~19:20', item: 'ヌーディーサマー夏の祝い', shop: 'ヌーディーサマー' }] }],
   },
   {
     id: 'bon-0803',
@@ -644,7 +705,12 @@ if (timetableHotspots && timetableModal && timetableModalPanel) {
         const item = document.createElement('li');
 
         if (line && typeof line === 'object' && line.shop) {
-          item.className = 'timetable-modal-shop-line';
+          item.className = line.time ? 'timetable-modal-shop-line has-time' : 'timetable-modal-shop-line';
+
+          if (line.time) {
+            item.append(createText('span', 'timetable-modal-shop-time', line.time));
+          }
+
           item.append(createText('span', 'timetable-modal-shop-item', line.item));
           item.append(createText('span', 'timetable-modal-shop-name', line.shop));
         } else {
@@ -661,13 +727,16 @@ if (timetableHotspots && timetableModal && timetableModalPanel) {
 
   const openTimetableModal = (program, trigger) => {
     lastFocusedTimetableButton = trigger;
+    const isStageProgram = program.id.startsWith('stage-');
+    timetableModalPanel.dataset.programId = program.id;
+    timetableModalPanel.classList.toggle('is-stage-program', isStageProgram);
     timetableModalKicker.textContent = '';
     timetableModalTitle.textContent = program.title;
     timetableModalMeta.replaceChildren();
 
     [
       ['日付', program.date],
-      ['時間', program.time],
+      ['時間', isStageProgram ? '' : program.time],
       ['会場', program.place],
     ].forEach(([label, value]) => {
       if (!value) return;

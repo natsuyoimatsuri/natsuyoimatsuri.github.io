@@ -31,6 +31,7 @@
     <nav id="siteNav" class="site-nav-panel" aria-label="サイトメニュー">
       <ul>
         <li><a href="index.html#Timetable">タイムテーブル</a></li>
+        <li><a href="program.html">プログラム</a></li>
         <li><a href="index.html#VenueMap">会場マップ</a></li>
         <li><a href="index.html#Access">アクセス</a></li>
         <li><a href="index.html#Credit">クレジット</a></li>
@@ -49,14 +50,29 @@
             <h1>プログラム</h1>
           </div>
 
-          <div class="program-date-filter" aria-label="日付で絞り込み">
-            <button type="button" class="is-active" data-program-date="all" aria-pressed="true">すべて</button>
-            <button type="button" data-program-date="7/30" aria-pressed="false">7/30(木)</button>
-            <button type="button" data-program-date="7/31" aria-pressed="false">7/31(金)</button>
-            <button type="button" data-program-date="8/1" aria-pressed="false">8/1(土)</button>
-            <button type="button" data-program-date="8/2" aria-pressed="false">8/2(日)</button>
-            <button type="button" data-program-date="8/3" aria-pressed="false">8/3(月)</button>
-            <button type="button" data-program-date="8/4" aria-pressed="false">8/4(火)</button>
+          <div class="program-filter-panel" aria-label="プログラム絞り込み">
+            <div class="program-filter-group">
+              <p class="program-filter-label">日付</p>
+              <div class="program-date-filter" aria-label="日付で絞り込み">
+                <button type="button" class="is-active" data-program-date="all" aria-pressed="true">すべて</button>
+                <button type="button" data-program-date="8/1" aria-pressed="false">8/1(土)</button>
+                <button type="button" data-program-date="8/2" aria-pressed="false">8/2(日)</button>
+                <button type="button" data-program-date="8/3" aria-pressed="false">8/3(月)</button>
+              </div>
+            </div>
+            <div class="program-filter-group">
+              <p class="program-filter-label">区分</p>
+              <div class="program-type-filter" aria-label="開催区分で絞り込み">
+                <button type="button" class="is-active" data-program-type="all" aria-pressed="true">すべて</button>
+                <button type="button" data-program-type="festival" aria-pressed="false">夏宵祭</button>
+                <button type="button" data-program-type="open-campus" aria-pressed="false">オープンキャンパス</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="program-type-legend" aria-label="開催区分">
+            <span class="program-type type-festival">夏宵祭 8/1(土) ~ 8/3(月)</span>
+            <span class="program-type type-open-campus">オープンキャンパス 7/30(木) ~ 8/4(火)</span>
           </div>
 
           <figure class="program-inline-map" aria-label="会場マップ">
@@ -64,410 +80,26 @@
           </figure>
         </div>
 
-        <article id="building-2" class="program-block location-block">
+        <article id="bon-dance" class="program-block location-block bon-dance-block">
           <div class="program-block-head">
-            <h3>2号館</h3>
+            <h3>盆踊り</h3>
           </div>
           <div class="location-list">
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">７/31(金)</span>
-                <span class="location-hours">10：30 ~ 12：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>公開授業『劇場文化論Ⅱ』森山直人</h4>
-                  <span class="location-tag tag-performance">演舞</span>
-                </div>
-                <p class="location-room">1階 106教室</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/３(月)</span>
-                <span class="location-hours">16：30 ~ 18：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>公開授業『演劇舞踊史研究Ⅰ』土屋康範</h4>
-                  <span class="location-tag tag-performance">演舞</span>
-                </div>
-                <p class="location-room">2階 203教室</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article id="mensa" class="program-block location-block">
-          <div class="program-block-head">
-            <h3>Mensa</h3>
-          </div>
-          <div class="location-list">
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土) ~ ８/３(月)</span>
-                <span class="location-hours">14：00 ~ 18：00</span>
-              </div>
-              <div class="location-main">
-                <h4>ワークショップ</h4>
-                <p class="location-detail">うちわをデザインする ／ 内壁をデザインする ／ 空間をデザインする</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article id="oculus" class="program-block location-block">
-          <div class="program-block-head">
-            <h3>Oculus Hall（講堂）</h3>
-          </div>
-          <div class="location-list">
-            <div class="location-event has-media">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土)</span>
-                <span class="location-hours">14：00 ~ 15：30</span>
-              </div>
-              <div class="location-main">
-                <h4>トーク「美術大学の未来へ」</h4>
-                <ul class="location-detail-list">
-                  <li>美術大学の未来へ　萩原朔美</li>
-                  <li>「八王子と上野毛」萩原朔美</li>
-                  <li>「身体とデザイン そして新たな芸術哲学へ」萩原朔美、安藤礼二、石田尚志</li>
-                </ul>
-              </div>
-              <figure class="location-media"><img src="poster5-display.jpg" alt=""></figure>
-            </div>
-
-            <div class="location-event has-media">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土)</span>
-                <span class="location-hours">15：45 ~ 17：15</span>
-              </div>
-              <div class="location-main">
-                <h4>レクチャー「『もの』と実験、多摩美術大学の批評と実践」</h4>
-                <p class="location-detail">安藤礼二</p>
-                <p class="location-detail">アートレクチャー登壇者：松井茂 、伊村靖子 、鍵谷怜、安藤礼二</p>
-              </div>
-              <figure class="location-media"><img src="poster4-display.jpg" alt=""></figure>
-            </div>
-
-            <div class="location-event has-media">
-              <div class="location-schedule">
-                <span class="location-date">８/２(日)</span>
-                <span class="location-hours">14：00 ~ 15：00</span>
-              </div>
-              <div class="location-main">
-                <h4>コンサート「イントナルモーリ オーケストラコンサート」</h4>
-                <p class="location-detail">多摩美術大学 学生有志、足立智美（指揮）</p>
-              </div>
-              <figure class="location-media"><img src="poster2-display.jpg" alt=""></figure>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/２(日)</span>
-                <span class="location-hours">15：15 ~ 17：15</span>
-              </div>
-              <div class="location-main">
-                <h4>シンポジウム「イントナルモーリと未来派」</h4>
-                <p class="location-detail">シンポジウム登壇者：石田尚志、足立智美、横田さやか、伊東篤宏、中川克志</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article id="main-building" class="program-block location-block">
-          <div class="program-block-head">
-            <h3>本部棟</h3>
-          </div>
-          <div class="location-list">
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土) ~ ８/２(日)</span>
-                <span class="location-hours">11：00 ~ ／ 13：00 ~ ／ 14：00 ~</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>内藤廣学長設計 新校舎見学ツアー</h4>
-                  <span class="location-tag tag-integrated">統合</span>
-                </div>
-                <p class="location-room">5階 ベランダ</p>
-                <p class="location-detail">各回30分</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土) ~ ８/２(日)</span>
-                <span class="location-hours">10：00 ~ 15：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>【学部志望者向け】教授に聞く！進学相談会</h4>
-                  <span class="location-tag tag-integrated">統合</span>
-                </div>
-                <p class="location-room">5階 交流ラウンジ</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土) ~ ８/２(日)</span>
-                <span class="location-hours">10：00 ~ 15：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>統合生_先輩たちの生の声が聞ける！「学生生活相談会」</h4>
-                  <span class="location-tag tag-integrated">統合</span>
-                </div>
-                <p class="location-room">5階 交流ラウンジ</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土)</span>
-                <span class="location-hours">10：00 ~ 15：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>サマースクール（事前申し込み制）</h4>
-                  <span class="location-tag tag-integrated">統合</span>
-                </div>
-                <p class="location-room">4階 403教室</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土) ／ ８/２(日)</span>
-                <span class="location-hours">10：00 ~ 12：00 ／ 13：00 ~ 15：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>【学部志望者向け】学部入試・カリキュラム解説</h4>
-                  <span class="location-tag tag-integrated">統合</span>
-                </div>
-                <p class="location-room">3階 303教室</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">７/30(木) ~ ８/４(火)</span>
-                <span class="location-hours">10：00 ~ 15：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>１・２年生カリキュラム展示</h4>
-                  <span class="location-tag tag-integrated">統合</span>
-                </div>
-                <p class="location-room">3階 305教室／306教室</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">７/30(木) ~ ８/４(火)</span>
-                <span class="location-hours">10：00 ~ 15：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>３年生デザイン演習作品展示</h4>
-                  <span class="location-tag tag-integrated">統合</span>
-                </div>
-                <p class="location-room">1階 Sala Blu ギャラリー</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">７/30(木) ~ ８/４(火)</span>
-                <span class="location-hours">10：00 ~ 15：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>３・４年生プロジェクト作品展示</h4>
-                  <span class="location-tag tag-integrated">統合</span>
-                </div>
-                <p class="location-room">1階 Sala Blu ギャラリー</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">７/30(木) ~ ８/４(火)</span>
-                <span class="location-hours">10：00 ~ 15：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>卒業制作アーカイブ展示</h4>
-                  <span class="location-tag tag-integrated">統合</span>
-                </div>
-                <p class="location-room">1階 Sala Blu ギャラリー</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土) ~ ８/２(日)</span>
-                <span class="location-hours">13：00 ~ 14：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>トークイベントTOGO CROSS TALK「統合のデザインってなに？」</h4>
-                  <span class="location-tag tag-integrated">統合</span>
-                </div>
-                <p class="location-room">地下1階 Maglabo</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土) ／ ８/２(日)</span>
-                <span class="location-hours">13：00 ~ 15：00 ／ 10：00 ~ 12：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>【SID志望者向け】SID 進学説明会（入試・カリキュラム解説・進学相談）</h4>
-                  <span class="location-tag tag-sid">SID</span>
-                </div>
-                <p class="location-room">5階 交流ラウンジ</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">７/３０(木) ~ ８/４(火)</span>
-                <span class="location-hours">10：00 ~ 15：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>PILOT PROGRAM ・ X_STUDIO 成果展示</h4>
-                  <span class="location-tag tag-sid">SID</span>
-                </div>
-                <p class="location-room">地下1階 Maglabo</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">７/３０(木) ~ ３１(金)</span>
-                <span class="location-hours">10：00 ~ 18：30</span>
-                <span class="location-date">８/１(土) ~ ４(火)</span>
-                <span class="location-hours">10：00 ~ 16：30</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>課題作品展示</h4>
-                  <span class="location-tag tag-performance">演舞</span>
-                </div>
-                <p class="location-room">1階 Sala Blu ギャラリー</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">７/３１(金)</span>
-                <span class="location-hours">13：00 ~ 18：30</span>
-                <span class="location-date">８/３(月)</span>
-                <span class="location-hours">13：00 ~ 16：30</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>進学相談会</h4>
-                  <span class="location-tag tag-performance">演舞</span>
-                </div>
-                <p class="location-room">1階 Sala Blu ギャラリー</p>
-              </div>
-            </div>
-
-            <div class="location-event has-media">
-              <div class="location-schedule">
-                <span class="location-date">８/３(月)</span>
-                <span class="location-hours">15：00 ~ 18：00</span>
-              </div>
-              <div class="location-main">
-                <h4>「帰って来た夜光虫達〜OBOG交流会〜」</h4>
-                <p class="location-room">2階 209教室</p>
-              </div>
-              <figure class="location-media"><img src="poster1-display.jpg" alt=""></figure>
-            </div>
-
-            <div class="location-event has-media">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土)</span>
-                <span class="location-hours">14：30 ~ 18：00 ／ 19：30 ~ 20：00</span>
-                <span class="location-date">８/２(日)</span>
-                <span class="location-hours">15：00 ~ 20：00</span>
-                <span class="location-date">８/３(月)</span>
-                <span class="location-hours">15：00 ~ 18：00</span>
-              </div>
-              <div class="location-main">
-                <h4>オーディオビジュアルパフォーマンス</h4>
-                <p class="location-room">地下1階 Maglabo</p>
-              </div>
-              <figure class="location-media"><img src="poster3-display.jpg" alt=""></figure>
-            </div>
-          </div>
-        </article>
-
-        <article id="stage" class="program-block location-block">
-          <div class="program-block-head">
-            <h3>中庭特設ステージ</h3>
-          </div>
-          <div class="location-list">
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土)</span>
-                <span class="location-hours">18：00 ~ 18：30</span>
-              </div>
-              <div class="location-main">
-                <h4>開会式</h4>
-              </div>
-            </div>
-
             <div class="location-event has-media">
               <div class="location-schedule">
                 <span class="location-date">８/１(土)</span>
                 <span class="location-hours">18：30 ~ 19：00</span>
               </div>
               <div class="location-main">
-                <h4>盆踊り</h4>
+                <div class="location-title-row program-title-row">
+                  <h4>盆踊り</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
                 <p class="location-detail">HEY!WA!odori ／ 本家上野毛音頭</p>
               </div>
-              <figure class="location-media"><img src="poster6-display.jpg" alt=""></figure>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/１(土)</span>
-                <span class="location-hours">19：00 ~ 20：30</span>
-              </div>
-              <div class="location-main">
-                <h4>ステージ企画〈学生〉</h4>
-                <ul class="location-detail-list">
-                  <li>ダンスバトル　メイジング企画</li>
-                  <li>ヌーディーサマー夏の祝い　ヌーディーサマー</li>
-                  <li>爆弾犯ひばりver.夏宵祭　劇団魔法少女</li>
-                  <li>アコーディオンの女　スン・ダンス</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/２(日)</span>
-                <span class="location-hours">18：00 ~ 19：00</span>
-              </div>
-              <div class="location-main">
-                <h4>ステージ企画〈学生〉</h4>
-                <ul class="location-detail-list">
-                  <li>エレキギターとカホンによる弾き語り演奏　沙ラ</li>
-                  <li>なんやて！？〜運命のコンビ、勘違い中〜　阿娘喂</li>
-                  <li>アコーディオンの女　スン・ダンス</li>
-                </ul>
-              </div>
+              <figure class="location-media bon-dance-poster"><img src="poster6-display.jpg" alt="盆踊り ポスター"></figure>
             </div>
 
             <div class="location-event">
@@ -477,25 +109,13 @@
                 <span class="location-hours is-subtime">19：30 ~ 20：30</span>
               </div>
               <div class="location-main">
-                <h4>盆踊り</h4>
+                <div class="location-title-row program-title-row">
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
                 <p class="location-detail">HEY!WA!odori ／ 本家上野毛音頭</p>
                 <p class="location-detail">上野毛ぽっちょん ／ 定番の東京音頭など</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/３(月)</span>
-                <span class="location-hours">18：00 ~ 19：30</span>
-              </div>
-              <div class="location-main">
-                <h4>ステージ企画〈学生〉</h4>
-                <ul class="location-detail-list">
-                  <li>漫才　せっぷんねんど</li>
-                  <li>ダンスバトル　メイジング企画</li>
-                  <li>落語フラメンコ　落語フラメンコ実行委員会</li>
-                  <li>ヌーディーサマー夏の祝い　ヌーディーサマー</li>
-                </ul>
               </div>
             </div>
 
@@ -505,87 +125,73 @@
                 <span class="location-hours">19：30 ~ 20：30</span>
               </div>
               <div class="location-main">
-                <h4>盆踊り</h4>
+                <div class="location-title-row program-title-row">
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
                 <p class="location-detail">盆踊り大集合！</p>
               </div>
             </div>
           </div>
         </article>
 
-        <article id="other" class="program-block location-block">
+        <article id="stage" class="program-block location-block">
           <div class="program-block-head">
-            <h3>その他の会場</h3>
-          </div>
-          <div class="location-list">
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">７/30(木) ~ ８/４(火)</span>
-                <span class="location-hours">10：00 ~ 15：00</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>大学院前期審査会作品展示</h4>
-                  <span class="location-tag tag-sid">SID</span>
-                </div>
-                <p class="location-room">3号館1階 映像スタジオ・Cube2階 205教室</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article id="studio" class="program-block location-block">
-          <div class="program-block-head">
-            <h3>演劇舞踊スタジオ</h3>
-          </div>
-          <div class="location-list">
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">７/30(木)</span>
-                <span class="location-hours">19：00 ~</span>
-                <span class="location-date">７/31(金)</span>
-                <span class="location-hours">14：00 ~ ／ 19：00 ~</span>
-                <span class="location-date">８/１(土)</span>
-                <span class="location-hours">14：00 ~</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>演劇公演（３年次インターゼミ上演演習）『雨の砂箱』</h4>
-                  <span class="location-tag tag-performance">演舞</span>
-                </div>
-                <p class="location-room">演劇舞踊スタジオ スタジオA</p>
-              </div>
-            </div>
-
-            <div class="location-event">
-              <div class="location-schedule">
-                <span class="location-date">８/３(月)</span>
-                <span class="location-hours">9：30～10：20</span>
-              </div>
-              <div class="location-main">
-                <div class="location-title-row">
-                  <h4>公開授業『基礎造形A 』則武弥</h4>
-                  <span class="location-tag tag-performance">演舞</span>
-                </div>
-                <p class="location-room">演劇舞踊スタジオ スタジオB</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article id="a-studio" class="program-block location-block">
-          <div class="program-block-head">
-            <h3>A棟 演劇舞踊スタジオ</h3>
+            <h3>ステージ企画</h3>
           </div>
           <div class="location-list">
             <div class="location-event">
               <div class="location-schedule">
                 <span class="location-date">８/１(土)</span>
-                <span class="location-hours">11：00 ~ 12：30</span>
+                <span class="location-hours">18：00 ~ 18：30</span>
               </div>
               <div class="location-main">
-                <div class="location-title-row">
-                  <h4>身体ワークショップ　近藤良平</h4>
-                  <span class="location-tag tag-performance">演舞</span>
+                <div class="location-title-row program-title-row">
+                  <h4>開会式</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土)</span>
+                <span class="location-hours">19：00 ~ 20：30</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>ステージ企画〈学生〉</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
+                <div class="stage-act-grid">
+                  <span class="stage-act-title">ダンスバトル</span><strong class="shop-name">メイジング企画</strong>
+                  <span class="stage-act-title">ヌーディーサマー夏の祝い</span><strong class="shop-name">ヌーディーサマー</strong>
+                  <span class="stage-act-title">爆弾犯ひばりver.夏宵祭</span><strong class="shop-name">劇団魔法少女</strong>
+                  <span class="stage-act-title">アコーディオンの女</span><strong class="shop-name">スン・ダンス</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/２(日)</span>
+                <span class="location-hours">18：00 ~ 19：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
+                <div class="stage-act-grid">
+                  <span class="stage-act-title">エレキギターとカホンによる弾き語り演奏</span><strong class="shop-name">沙ラ</strong>
+                  <span class="stage-act-title">なんやて！？〜運命のコンビ、勘違い中〜</span><strong class="shop-name">阿娘喂</strong>
+                  <span class="stage-act-title">アコーディオンの女</span><strong class="shop-name">スン・ダンス</strong>
                 </div>
               </div>
             </div>
@@ -593,12 +199,19 @@
             <div class="location-event">
               <div class="location-schedule">
                 <span class="location-date">８/３(月)</span>
-                <span class="location-hours">11：00 ~ 12：30</span>
+                <span class="location-hours">18：00 ~ 19：30</span>
               </div>
               <div class="location-main">
-                <div class="location-title-row">
-                  <h4>身体ワークショップ　糸井幸之介</h4>
-                  <span class="location-tag tag-performance">演舞</span>
+                <div class="location-title-row program-title-row">
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
+                <div class="stage-act-grid">
+                  <span class="stage-act-title">漫才</span><strong class="shop-name">せっぷんねんど</strong>
+                  <span class="stage-act-title">ダンスバトル</span><strong class="shop-name">メイジング企画</strong>
+                  <span class="stage-act-title">落語フラメンコ</span><strong class="shop-name">落語フラメンコ実行委員会</strong>
+                  <span class="stage-act-title">ヌーディーサマー夏の祝い</span><strong class="shop-name">ヌーディーサマー</strong>
                 </div>
               </div>
             </div>
@@ -616,7 +229,12 @@
                 <span class="location-hours">14：00 ~ 20：00</span>
               </div>
               <div class="location-main">
-                <h4>屋台・キッチンカー</h4>
+                <div class="location-title-row program-title-row">
+                  <h4>屋台・キッチンカー</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
                 <p class="location-note">※各出店によって開催日時が異なりますのでご了承ください。</p>
                 <div class="location-shop-grid">
                   <span class="shop-item">タコス、ケサディーヤ、ドリロコス</span><strong class="shop-name">グリルダイナー301</strong>
@@ -632,8 +250,568 @@
                   <span class="shop-item">天然アロマ商品</span><strong class="shop-name">株式会社SeaAroma</strong>
                   <span class="shop-item">キャンディとわたあめ</span><strong class="shop-name">TIK TOK HAND MADE CANDY</strong>
                   <span class="shop-item">キンキンのラムネ</span><strong class="shop-name">TOGO CAFE</strong>
+                  <span class="shop-item shop-note-spacer" aria-hidden="true"></span><span class="shop-name shop-order-note">※五十音順</span>
                 </div>
-                <p class="location-note">※五十音順</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="mensa" class="program-block location-block">
+          <div class="program-block-head">
+            <h3>Mensa</h3>
+          </div>
+          <div class="location-list">
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土) ~ ８/３(月)</span>
+                <span class="location-hours">14：00 ~ 18：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>ワークショップ</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
+                <p class="location-detail">うちわをデザインする ／ 内壁をデザインする ／ 空間をデザインする</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="oculus" class="program-block location-block">
+          <div class="program-block-head">
+            <h3>Oculus Hall（講堂）</h3>
+          </div>
+          <div class="location-list">
+            <div class="location-event has-media">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土)</span>
+                <span class="location-hours">14：00 ~ 15：30</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>トーク「美術大学の未来へ」</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
+                <ul class="location-detail-list">
+                  <li>美術大学の未来へ　萩原朔美</li>
+                  <li>「八王子と上野毛」萩原朔美</li>
+                  <li>「身体とデザイン そして新たな芸術哲学へ」萩原朔美、安藤礼二、石田尚志</li>
+                </ul>
+              </div>
+              <figure class="location-media"><img src="poster5-display.jpg" alt=""></figure>
+            </div>
+
+            <div class="location-event has-media">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土)</span>
+                <span class="location-hours">15：45 ~ 17：15</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>レクチャー「『もの』と実験、多摩美術大学の批評と実践」</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
+                <p class="location-detail">安藤礼二</p>
+                <p class="location-detail">アートレクチャー登壇者：松井茂 、伊村靖子 、鍵谷怜、安藤礼二</p>
+              </div>
+              <figure class="location-media"><img src="poster4-display.jpg" alt=""></figure>
+            </div>
+
+            <div class="location-event has-media">
+              <div class="location-schedule">
+                <span class="location-date">８/２(日)</span>
+                <span class="location-hours">14：00 ~ 15：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>コンサート「イントナルモーリ オーケストラコンサート」</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
+                <p class="location-detail">多摩美術大学 学生有志、足立智美（指揮）</p>
+              </div>
+              <figure class="location-media"><img src="poster2-display.jpg" alt=""></figure>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/２(日)</span>
+                <span class="location-hours">15：15 ~ 17：15</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>シンポジウム「イントナルモーリと未来派」</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
+                <p class="location-detail">シンポジウム登壇者：石田尚志、足立智美、横田さやか、伊東篤宏、中川克志</p>
+                <div class="location-profile-list">
+                  <section class="location-profile-with-image">
+                    <div>
+                      <h5>石田尚志</h5>
+                      <p>多摩美術大学美術学部絵画学科油画専攻 教授。線を一コマずつ描いては撮影するドローイング・アニメーションという手法を用いて、空間のなかに増殖する線や移動する点といった運動性を介入させ、空間の質をさまざまに変容させるインスタレーションを発表している。主な個展として、「絵と窓の間」神奈川県立近代美術館 葉山／アーツ前橋／高松市美術館、「渦まく光」横浜美術館／沖縄県立博物館・美術館など。2025年、芸術選奨文部科学大臣賞受賞。</p>
+                    </div>
+                    <figure class="location-profile-image">
+                      <img src="symposium-portrait.png" alt="石田尚志">
+                    </figure>
+                  </section>
+                  <section class="location-profile-with-image">
+                    <div>
+                      <h5>足立智美</h5>
+                      <p>パフォーマー／作曲家、音響詩人、楽器製作者、視覚芸術家。その多彩なスタイルで知られ、自身の声とエレクトロニクスによる即興、音響詩、即興演奏、現代音楽作品の上演から、サイト・スペシフィックな作曲、器楽作品、技術を持たない人々のための合唱曲などを、テート・モダン、ハンブルガー・バーンホフ美術館、ポンピドゥー・センターなど世界各地で発表している。その作品には自作のインターフェイスから、人工知能、脳波、人工衛星、ツイッター、骨折、超常現象までもが用いられる。</p>
+                    </div>
+                    <figure class="location-profile-image">
+                      <img src="symposium-intonarumori.jpg" alt="イントナルモーリ オーケストラ">
+                      <figcaption>© Guillaume Kerhervé / Maison de la Poésie de Nantes</figcaption>
+                    </figure>
+                  </section>
+                  <section>
+                    <h5>横田さやか</h5>
+                    <p>東京外国語大学総合国際学研究特別研究員。ボローニャ大学Ph.D（映画音楽演劇学）、東京外国語大学博士（学術）。単著に『未来派・飛行機・ダンス：イタリアの前衛芸術における飛ぶ身体と踊る身体』（三元社）、共著に和田忠彦編『イタリア文化55のキーワード』（ミネルヴァ書房）、共訳に『ウンベルト・エーコの世界文明講義』（河出書房新社）など。</p>
+                  </section>
+                  <section>
+                    <h5>中川克志</h5>
+                    <p>横浜国立大学大学院都市イノベーション研究院・准教授。サウンド・アートとサウンド・スタディーズの研究者。博士（文学）。『サウンド・アートとは何か』（ナカニシヤ出版、2023年）など。『音のキーワード事典（Keywords in Sound）』翻訳と共著『サウンド・スタディーズへの招待』が刊行予定。音響散歩学の構想に取り組んでいる。</p>
+                  </section>
+                  <section>
+                    <h5>伊東篤宏</h5>
+                    <p>美術家、OPTRON奏者。1990年代初期より美術家として活動を開始。作品形態は平面絵画作品から蛍光灯やサウンドオブジェを使用したインスタレーションまで多岐にわたる。90年代末より自作音具OPTRONを使ったライヴパフォーマンスを自身の個展やグループ展と並行して開始する。2000年代より国内外のライヴツアーを精力的に行ない、身体パフォーマーやミュージシャン、サウンドクリエイターとの共演・共作も積極的に行いながら現在に至る。美術作品制作、ライヴパフォーマンス共に、視聴覚の拡張、ひいてはその新たな在り方をテーマとし、模索し続けている。Instagram : @ito_atsuhiro　X : @ito_atsuhiro</p>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="main-building" class="program-block location-block">
+          <div class="program-block-head">
+            <h3>本部棟</h3>
+          </div>
+          <div class="location-list">
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土) ~ ８/２(日)</span>
+                <span class="location-hours">11：00 ~ ／ 13：00 ~ ／ 14：00 ~</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>内藤廣学長設計 新校舎見学ツアー</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-integrated">統合</span>
+                  </div>
+                </div>
+                <p class="location-room">5階 ベランダ</p>
+                <p class="location-detail">各回30分</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土) ~ ８/２(日)</span>
+                <span class="location-hours">10：00 ~ 15：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>【学部志望者向け】教授に聞く！進学相談会</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-integrated">統合</span>
+                  </div>
+                </div>
+                <p class="location-room">5階 交流ラウンジ</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土) ~ ８/２(日)</span>
+                <span class="location-hours">10：00 ~ 15：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>統合生_先輩たちの生の声が聞ける！「学生生活相談会」</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-integrated">統合</span>
+                  </div>
+                </div>
+                <p class="location-room">5階 交流ラウンジ</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土)</span>
+                <span class="location-hours">10：00 ~ 15：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>サマースクール（事前申し込み制）</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-integrated">統合</span>
+                  </div>
+                </div>
+                <p class="location-room">4階 403教室</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土) ／ ８/２(日)</span>
+                <span class="location-hours">10：00 ~ 12：00 ／ 13：00 ~ 15：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>【学部志望者向け】学部入試・カリキュラム解説</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-integrated">統合</span>
+                  </div>
+                </div>
+                <p class="location-room">3階 303教室</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">７/30(木) ~ ８/４(火)</span>
+                <span class="location-hours">10：00 ~ 15：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>１・２年生カリキュラム展示</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-integrated">統合</span>
+                  </div>
+                </div>
+                <p class="location-room">3階 305教室／306教室</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">７/30(木) ~ ８/４(火)</span>
+                <span class="location-hours">10：00 ~ 15：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>３年生デザイン演習作品展示</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-integrated">統合</span>
+                  </div>
+                </div>
+                <p class="location-room">1階 Sala Blu ギャラリー</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">７/30(木) ~ ８/４(火)</span>
+                <span class="location-hours">10：00 ~ 15：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>３・４年生プロジェクト作品展示</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-integrated">統合</span>
+                  </div>
+                </div>
+                <p class="location-room">1階 Sala Blu ギャラリー</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">７/30(木) ~ ８/４(火)</span>
+                <span class="location-hours">10：00 ~ 15：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>卒業制作アーカイブ展示</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-integrated">統合</span>
+                  </div>
+                </div>
+                <p class="location-room">1階 Sala Blu ギャラリー</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土) ~ ８/２(日)</span>
+                <span class="location-hours">13：00 ~ 14：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>トークイベントTOGO CROSS TALK「統合のデザインってなに？」</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-integrated">統合</span>
+                  </div>
+                </div>
+                <p class="location-room">地下1階 Maglabo</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土) ／ ８/２(日)</span>
+                <span class="location-hours">13：00 ~ 15：00 ／ 10：00 ~ 12：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>【SID志望者向け】SID 進学説明会（入試・カリキュラム解説・進学相談）</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-sid">SID</span>
+                  </div>
+                </div>
+                <p class="location-room">5階 交流ラウンジ</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">７/３０(木) ~ ８/４(火)</span>
+                <span class="location-hours">10：00 ~ 15：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>PILOT PROGRAM ・ X_STUDIO 成果展示</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-sid">SID</span>
+                  </div>
+                </div>
+                <p class="location-room">地下1階 Maglabo</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">７/30(木) ~ ８/４(火)</span>
+                <span class="location-hours">10：00 ~ 18：30 ／ 10：00 ~ 16：30</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>課題作品展示</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-performance">演舞</span>
+                  </div>
+                </div>
+                <p class="location-room">1階 Sala Blu ギャラリー</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">７/31(金) ／ ８/３(月)</span>
+                <span class="location-hours">13：00 ~ 18：30 ／ 13：00 ~ 16：30</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>進学相談会</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-performance">演舞</span>
+                  </div>
+                </div>
+                <p class="location-room">1階 Sala Blu ギャラリー</p>
+              </div>
+            </div>
+
+            <div class="location-event has-media">
+              <div class="location-schedule">
+                <span class="location-date">８/３(月)</span>
+                <span class="location-hours">15：00 ~ 18：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>「帰って来た夜光虫達〜OBOG交流会〜」</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
+                <p class="location-room">2階 209教室</p>
+              </div>
+              <figure class="location-media"><img src="poster1-display.jpg" alt=""></figure>
+            </div>
+
+            <div class="location-event has-media">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土) ~ ８/３(月)</span>
+                <span class="location-hours">14：30 ~ 18：00 ／ 19：30 ~ 20：00 ／ 15：00 ~ 20：00 ／ 15：00 ~ 18：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>オーディオビジュアルパフォーマンス</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-festival">夏宵祭</span>
+                  </div>
+                </div>
+                <p class="location-room">地下1階 Maglabo</p>
+              </div>
+              <figure class="location-media"><img src="poster3-display.jpg" alt=""></figure>
+            </div>
+          </div>
+        </article>
+
+        <article id="other" class="program-block location-block">
+          <div class="program-block-head">
+            <h3>3号館・Cube</h3>
+          </div>
+          <div class="location-list">
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">７/30(木) ~ ８/４(火)</span>
+                <span class="location-hours">10：00 ~ 15：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>大学院前期審査会作品展示</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-sid">SID</span>
+                  </div>
+                </div>
+                <p class="location-room">3号館1階 映像スタジオ・Cube2階 205教室</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="a-studio" class="program-block location-block">
+          <div class="program-block-head">
+            <h3>A棟 演劇舞踊スタジオ</h3>
+          </div>
+          <div class="location-list">
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/１(土)</span>
+                <span class="location-hours">11：00 ~ 12：30</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>身体ワークショップ　近藤良平</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-performance">演舞</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/３(月)</span>
+                <span class="location-hours">11：00 ~ 12：30</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>身体ワークショップ　糸井幸之介</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-performance">演舞</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="studio" class="program-block location-block">
+          <div class="program-block-head">
+            <h3>演劇舞踊スタジオ</h3>
+          </div>
+          <div class="location-list">
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">７/30(木) ~ ８/１(土)</span>
+                <span class="location-hours">19：00 ~ ／ 14：00 ~ ／ 19：00 ~ ／ 14：00 ~</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>演劇公演（３年次インターゼミ上演演習）『雨の砂箱』</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-performance">演舞</span>
+                  </div>
+                </div>
+                <p class="location-room">演劇舞踊スタジオ スタジオA</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/３(月)</span>
+                <span class="location-hours">9：30～10：20</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>公開授業『基礎造形A 』則武弥</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-performance">演舞</span>
+                  </div>
+                </div>
+                <p class="location-room">演劇舞踊スタジオ スタジオB</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="building-2" class="program-block location-block">
+          <div class="program-block-head">
+            <h3>2号館</h3>
+          </div>
+          <div class="location-list">
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">７/31(金)</span>
+                <span class="location-hours">10：30 ~ 12：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>公開授業『劇場文化論Ⅱ』森山直人</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-performance">演舞</span>
+                  </div>
+                </div>
+                <p class="location-room">1階 106教室</p>
+              </div>
+            </div>
+
+            <div class="location-event">
+              <div class="location-schedule">
+                <span class="location-date">８/３(月)</span>
+                <span class="location-hours">16：30 ~ 18：00</span>
+              </div>
+              <div class="location-main">
+                <div class="location-title-row program-title-row">
+                  <h4>公開授業『演劇舞踊史研究Ⅰ』土屋康範</h4>
+                  <div class="program-labels">
+                    <span class="program-type type-open-campus">オープンキャンパス</span>
+                    <span class="location-tag tag-performance">演舞</span>
+                  </div>
+                </div>
+                <p class="location-room">2階 203教室</p>
               </div>
             </div>
           </div>

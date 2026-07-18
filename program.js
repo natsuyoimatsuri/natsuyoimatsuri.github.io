@@ -34,6 +34,7 @@ if (siteHeader && menuToggle && siteNavPanel) {
 }
 
 const filterRoot = document.querySelector('.program-date-filter');
+const typeFilterRoot = document.querySelector('.program-type-filter');
 const locationBlocks = document.querySelectorAll('.location-block');
 const dateOrder = ['7/30', '7/31', '8/1', '8/2', '8/3', '8/4'];
 
@@ -71,27 +72,45 @@ const collectDates = (text) => {
 };
 
 if (filterRoot && locationBlocks.length) {
+  let selectedDate = 'all';
+  let selectedType = 'all';
+
+  const setActiveButton = (root, dataName, value) => {
+    if (!root) return;
+
+    root.querySelectorAll('button').forEach((button) => {
+      const isActive = button.dataset[dataName] === value;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-pressed', String(isActive));
+    });
+  };
+
   locationBlocks.forEach((block) => {
     block.querySelectorAll('.location-event').forEach((event) => {
       const dateText = [...event.querySelectorAll('.location-date')]
         .map((date) => date.textContent)
         .join(' ');
+      const typeLabel = event.querySelector('.program-type.type-festival, .program-type.type-open-campus');
+
       event.dataset.dates = [...collectDates(dateText)].join(' ');
+      event.dataset.programType = typeLabel && typeLabel.classList.contains('type-festival')
+        ? 'festival'
+        : 'open-campus';
     });
   });
 
-  const applyFilter = (selectedDate) => {
-    filterRoot.querySelectorAll('button').forEach((button) => {
-      const isActive = button.dataset.programDate === selectedDate;
-      button.classList.toggle('is-active', isActive);
-      button.setAttribute('aria-pressed', String(isActive));
-    });
+  const applyFilter = () => {
+    setActiveButton(filterRoot, 'programDate', selectedDate);
+    setActiveButton(typeFilterRoot, 'programType', selectedType);
 
     locationBlocks.forEach((block) => {
       let hasVisibleEvent = false;
 
       block.querySelectorAll('.location-event').forEach((event) => {
-        const shouldShow = selectedDate === 'all' || event.dataset.dates.split(' ').includes(selectedDate);
+        const matchesDate = selectedDate === 'all' || event.dataset.dates.split(' ').includes(selectedDate);
+        const matchesType = selectedType === 'all' || event.dataset.programType === selectedType;
+        const shouldShow = matchesDate && matchesType;
+
         event.hidden = !shouldShow;
         if (shouldShow) hasVisibleEvent = true;
       });
@@ -103,8 +122,18 @@ if (filterRoot && locationBlocks.length) {
   filterRoot.addEventListener('click', (event) => {
     const button = event.target.closest('button[data-program-date]');
     if (!button) return;
-    applyFilter(button.dataset.programDate);
+    selectedDate = button.dataset.programDate;
+    applyFilter();
   });
+
+  if (typeFilterRoot) {
+    typeFilterRoot.addEventListener('click', (event) => {
+      const button = event.target.closest('button[data-program-type]');
+      if (!button) return;
+      selectedType = button.dataset.programType;
+      applyFilter();
+    });
+  }
 }
 
 
