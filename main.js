@@ -4,10 +4,12 @@
 
 const siteHeader = document.getElementById('siteHeader');
 const topSection = document.getElementById('Top');
+const programFloatingLink = document.querySelector('.program-floating-link');
 
 if (siteHeader && topSection) {
   const setHeaderVisible = (visible) => {
     const wasVisible = siteHeader.classList.contains('is-visible');
+    programFloatingLink?.classList.toggle('is-visible', visible);
 
     if (visible && !wasVisible) {
       siteHeader.classList.add('is-visible');
@@ -15,6 +17,10 @@ if (siteHeader && topSection) {
       void siteHeader.offsetWidth;
       siteHeader.classList.add('is-appearing');
       return;
+    }
+
+    if (!visible) {
+      programFloatingLink?.classList.remove('is-over-light', 'is-over-red');
     }
 
     if (!visible && wasVisible) {
@@ -204,6 +210,15 @@ if (siteHeader) {
     ticking = false;
     const isOnLight = isHeaderOnLight();
     siteHeader.classList.toggle('is-on-light', isOnLight);
+
+    if (programFloatingLink) {
+      if (programFloatingLink.classList.contains('is-visible')) {
+        updateElementContrast(programFloatingLink);
+      } else {
+        programFloatingLink.classList.remove('is-over-light', 'is-over-red');
+      }
+    }
+
     updateMenuLinkContrast();
   };
 
@@ -228,13 +243,13 @@ if (siteHeader) {
    プログラム詳細から戻る時のスクロール位置を補助
 =================================================================== */
 
-const programDetailLink = document.querySelector('.program-detail-link');
+const programDetailLinks = document.querySelectorAll('.program-detail-link');
 
-if (programDetailLink) {
+programDetailLinks.forEach((programDetailLink) => {
   programDetailLink.addEventListener('click', () => {
     sessionStorage.setItem('natsuyoiMainScrollY', String(window.scrollY));
   });
-}
+});
 
 window.addEventListener('pageshow', () => {
   const storedScrollY = sessionStorage.getItem('natsuyoiMainScrollY');
